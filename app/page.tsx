@@ -1,11 +1,11 @@
-import { COURSE_WELCOME_TEXT } from "@/lib/config";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <main>
       <div>
-        <h2>{COURSE_WELCOME_TEXT}</h2>
+        <h2>Hey there and welcome to the Product Jam Starter Kit!</h2>
+        <p>Read the source code, and navigate to the demos</p>
         <Image
           src="/huji.svg"
           alt="HUJI Logo"

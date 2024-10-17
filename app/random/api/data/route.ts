@@ -47,6 +47,5 @@ export async function GET(request: NextRequest) {
     prompt_companies,
     prompt_ideas,
   };
-  console.log(response);
   return Response.json(response);
 }

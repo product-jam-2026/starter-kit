@@ -1,6 +1,6 @@
-import "@/globals.css";
-import "@/styles/reset.css";
 import "@/styles/main.css";
+import "@/globals.css";
+
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Navbar from "@/lib/components/Navbar";

@@ -1,7 +1,5 @@
 export const APP_NAME = "Starter Kit";
 export const COURSE_GITHUB = "https://github.com/product-jam-2025";
-export const COURSE_WELCOME_TEXT =
-  "Hey there, and welcome! Read the source code, and navigate to the demos.";
 export const COURSE_CREDITS = "Product Jam 2025";
 
 export const DEMOS_ENABLED =
