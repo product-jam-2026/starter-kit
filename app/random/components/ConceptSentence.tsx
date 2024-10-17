@@ -10,9 +10,13 @@ interface Props {
 export default function ConceptSentence({ concept }: Props) {
   return (
     <div style={{ opacity: concept ? 1 : 0 }} className={styles.concept}>
-      <span className={styles.label}>כמו</span> {concept?.name}
+      <span className={styles.label}>כמו</span>
       <br />
-      <span className={styles.label}>אבל עבור</span> {concept?.idea}
+      {concept?.name ?? "."}
+      <br />
+      <span className={styles.label}>אבל עבור</span>
+      <br />
+      {concept?.idea ?? "."}
     </div>
   );
 }

@@ -18,8 +18,8 @@ function shuffle(arr: unknown[]): unknown[] {
 
 export function fadeInCalls(
   callback: Function,
-  initialDelay = 200,
-  iterations = 4
+  initialDelay = 30,
+  iterations = 16
 ) {
   let delay = initialDelay;
 
@@ -28,7 +28,7 @@ export function fadeInCalls(
       callback();
     }, delay);
 
-    delay *= 1.5; // More delay for the next iteration
+    delay *= 1.3; // More delay for the next iteration
   }
 }
 

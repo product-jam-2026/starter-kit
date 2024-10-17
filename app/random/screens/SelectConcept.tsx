@@ -65,10 +65,8 @@ export default function SelectConcept({
   }
 
   const randomizeConcept = useCallback(() => {
-    fadeInCalls(
-      () => setConcept(makeConcept(data.prompt_companies, data.prompt_ideas)),
-      30,
-      10
+    fadeInCalls(() =>
+      setConcept(makeConcept(data.prompt_companies, data.prompt_ideas))
     );
   }, [data.prompt_companies, data.prompt_ideas]);
 
