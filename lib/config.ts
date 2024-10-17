@@ -11,34 +11,30 @@ export const DEMOS = [
     title: "Blank",
     slug: "/demos/00_blank",
     description: "A minimal blank slate.",
-    cssClass: "demo-blank",
+  },
+  {
+    title: "HTML Elements",
+    slug: "/demos/00_elements",
+    description:
+      "This page provides an overview of common HTML elements. Use this page to see how your CSS changes the styling of these elements.",
   },
   {
     title: "Contact form",
     slug: "/demos/01_contact",
     description:
       "A simple example of a contact form that sends an email. In this case, the contact form sends an email to the email entered in the form.",
-    cssClass: "demo-contactForm",
   },
   {
     title: "Basic Data Visualization",
     slug: "/demos/02_viz",
     description:
       "A simple example of reading data from a public API and displaying it in a chart.",
-    cssClass: "demo-viz",
-  },
-  {
-    title: "Basic Stepped Form",
-    slug: "/demos/03_stepped_form",
-    description: "A simple example of a form with multiple steps.",
-    cssClass: "demo-stepped-form",
   },
   {
     title: "Random Team Generator",
     slug: "/random",
     description:
       "An example of a fully functional application that builds random teams and product ideas from this year's students.",
-    cssClass: "demo-randomTeamGenerator",
   },
 ];
 

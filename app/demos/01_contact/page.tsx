@@ -39,8 +39,8 @@ export default function ContactForm() {
   const formClassName = `${styles.contactForm} gray-bg`;
 
   return (
-    <div className="content">
-      <div className="demo-notes padding-1">
+    <main>
+      <div>
         <p>
           <strong>What is happening in this example?</strong>
         </p>
@@ -104,6 +104,6 @@ export default function ContactForm() {
           <button type="submit">Submit</button>
         </form>
       )}
-    </div>
+    </main>
   );
 }
