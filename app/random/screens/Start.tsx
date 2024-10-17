@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import type { StateDescriptor, TransitionStateFunction } from '../../types';
-import SessionAction from '../partials/session-action';
+import type { StateDescriptor, TransitionStateFunction } from "../types";
+import SessionAction from "../components/SessionAction";
+import MainTitle from "../components/MainTitle";
 
 interface Props {
   stateDescriptor: StateDescriptor;
@@ -9,20 +10,19 @@ interface Props {
 }
 
 export default function Start({ stateDescriptor, transitionToStateFn }: Props) {
-
   function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
   }
 
   return (
-    <div className="center align-center">
+    <>
+      <MainTitle />
       <SessionAction
         handler={actionHandler}
         id={stateDescriptor.action.id}
         text={stateDescriptor.action.text}
         disabled={stateDescriptor.action.disabled}
-        cycleBackground={stateDescriptor.cycleBackground}
       />
-    </div>
+    </>
   );
 }

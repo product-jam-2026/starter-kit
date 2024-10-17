@@ -4,8 +4,11 @@ export default function Home() {
   return (
     <main>
       <div>
-        <h2>Hey there and welcome to the Product Jam Starter Kit!</h2>
-        <p>Read the source code, and navigate to the demos</p>
+        <h2>Welcome to the Product Jam Starter Kit</h2>
+        <p>
+          Feel free to look around, edit the source code and navigate to the
+          demos.
+        </p>
         <Image
           src="/huji.svg"
           alt="HUJI Logo"

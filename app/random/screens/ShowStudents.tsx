@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import type { Data, StateDescriptor, TransitionStateFunction } from '../../types';
-import SessionAction from '../partials/session-action';
-import StudentList from '../partials/student-list';
-import Wrapper from '../partials/wrapper';
+import type { Data, StateDescriptor, TransitionStateFunction } from "../types";
+import SessionAction from "../components/SessionAction";
+import StudentList from "../components/StudentList";
+import Wrapper from "../components/Wrapper";
 
 interface Props {
   data: Data;
@@ -16,9 +16,8 @@ export default function ShowStudents({
   data,
   assignedStudents,
   stateDescriptor,
-  transitionToStateFn
+  transitionToStateFn,
 }: Props) {
-
   function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
   }
@@ -35,7 +34,6 @@ export default function ShowStudents({
         id={stateDescriptor.action.id}
         text={stateDescriptor.action.text}
         disabled={stateDescriptor.action.disabled}
-        cycleBackground={stateDescriptor.cycleBackground}
       />
     </Wrapper>
   );

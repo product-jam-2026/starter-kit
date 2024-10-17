@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "./page.module.css";
 import {
   PRIVATE_SUPABASE_SERVICE_KEY,
   PUBLIC_SUPABASE_ANON_KEY,
@@ -7,12 +8,20 @@ import {
   SUPABASE_ENABLED,
 } from "@/lib/config";
 import { useState } from "react";
-import Message from "./components/partials/message";
-import { getCurrentComponent } from "./components/utils";
+import Message from "./components/Message";
+import { getCurrentComponent } from "./utils";
 import { useData } from "./hooks";
 import { AssignedTeam } from "./types";
 
 export default function App() {
+  return (
+    <div id={styles.randomApp}>
+      <RandomApp />
+    </div>
+  );
+}
+
+function RandomApp() {
   const [currentStateId, transitionToStateFn] = useState(0);
 
   const { data, isLoading: dataLoading, isError: dataError } = useData();
@@ -22,9 +31,9 @@ export default function App() {
 
   if (!SUPABASE_ENABLED)
     return <Message content={PRIVATE_SUPABASE_SERVICE_KEY} />;
-  if (dataLoading) return <Message content="Loading..." />;
-  if (dataError) return <Message content="An error occured..." />;
-  if (!data) return <Message content="No data could be loaded..." />;
+  if (dataLoading) return <Message content="טוען..." />;
+  if (dataError) return <Message content="שגיאה" />;
+  if (!data) return <Message content="לא ניתן לטעון את המידע" />;
 
   return getCurrentComponent(
     currentStateId,

@@ -55,7 +55,6 @@ export interface StateDescriptor {
     text: string;
     disabled: boolean;
   };
-  cycleBackground: boolean;
   next: number;
 }
 

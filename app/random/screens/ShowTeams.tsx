@@ -1,9 +1,16 @@
-'use client';
+"use client";
 
-import { AssignedTeam, Data, SetAssignedStudents, SetTeams, StateDescriptor, TransitionStateFunction } from '../../types';
-import SessionAction from '../partials/session-action';
-import TeamList from '../partials/team-list';
-import Wrapper from '../partials/wrapper';
+import {
+  AssignedTeam,
+  Data,
+  SetAssignedStudents,
+  SetTeams,
+  StateDescriptor,
+  TransitionStateFunction,
+} from "../types";
+import SessionAction from "../components/SessionAction";
+import TeamList from "../components/TeamList";
+import Wrapper from "../components/Wrapper";
 
 interface Props {
   data: Data;
@@ -22,7 +29,6 @@ export default function ShowTeams({
   setAssignedStudents,
   transitionToStateFn,
 }: Props) {
-
   function actionHandler() {
     setAssignedStudents([]);
     setTeams([]);
@@ -31,17 +37,12 @@ export default function ShowTeams({
 
   return (
     <Wrapper>
-      <TeamList
-        teams={teams}
-        groups={data.groups}
-        students={data.students}
-      />
+      <TeamList teams={teams} groups={data.groups} students={data.students} />
       <SessionAction
         handler={actionHandler}
         id={stateDescriptor.action.id}
         text={stateDescriptor.action.text}
         disabled={stateDescriptor.action.disabled}
-        cycleBackground={stateDescriptor.cycleBackground}
       />
     </Wrapper>
   );

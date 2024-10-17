@@ -1,12 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { STATE_TRANSITION_ANIMATION_DURATION } from '../../constants';
-import { selectStudents } from '../../logic';
-import type { AssignedTeam, Data, SetCurrentTeamMembers, StateDescriptor, TransitionStateFunction } from '../../types';
-import SessionAction from '../partials/session-action';
-import StudentList from '../partials/student-list';
-import Wrapper from '../partials/wrapper';
+import { useEffect, useState } from "react";
+import { STATE_TRANSITION_ANIMATION_DURATION } from "../constants";
+import { selectStudents } from "../logic";
+import type {
+  AssignedTeam,
+  Data,
+  SetCurrentTeamMembers,
+  StateDescriptor,
+  TransitionStateFunction,
+} from "../types";
+import SessionAction from "../components/SessionAction";
+import StudentList from "../components/StudentList";
+import Wrapper from "../components/Wrapper";
 
 interface Props {
   data: Data;
@@ -27,8 +33,9 @@ export default function SelectStudents({
   setCurrentTeamMembers,
   transitionToStateFn,
 }: Props) {
-
-  const [actionDisabled, setActionDisabled] = useState(stateDescriptor.action.disabled);
+  const [actionDisabled, setActionDisabled] = useState(
+    stateDescriptor.action.disabled
+  );
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,7 +45,13 @@ export default function SelectStudents({
       );
       setActionDisabled(false);
     }, STATE_TRANSITION_ANIMATION_DURATION);
-  }, [data.students, data.distribution, assignedStudents, teams, setCurrentTeamMembers]);
+  }, [
+    data.students,
+    data.distribution,
+    assignedStudents,
+    teams,
+    setCurrentTeamMembers,
+  ]);
 
   function actionHandler() {
     transitionToStateFn(stateDescriptor.next);
@@ -47,6 +60,7 @@ export default function SelectStudents({
   return (
     <Wrapper>
       <StudentList
+        animate={!actionDisabled}
         groups={data.groups}
         students={data.students}
         currentTeamMembers={currentTeamMembers}
@@ -57,7 +71,6 @@ export default function SelectStudents({
         id={stateDescriptor.action.id}
         text={stateDescriptor.action.text}
         disabled={actionDisabled}
-        cycleBackground={stateDescriptor.cycleBackground}
       />
     </Wrapper>
   );
