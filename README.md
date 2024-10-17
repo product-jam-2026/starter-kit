@@ -113,11 +113,6 @@ be publicly available.
 
 # Helpers
 
-## CSS Debug
-
-Whent he Environment Variable `CSS_DEBUG` is set to `css_debug`, then additional
-visual outlines will appear in the UI to help you debug CSS issues.
-
 # Demos
 
 Go to the demos page on the running app to use the demos. The demos are provided
