@@ -3,8 +3,8 @@ import "@/styles/reset.css";
 import "@/styles/main.css";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import Navbar from "@/lib/components/navbar";
-import Footer from "@/lib/components/footer";
+import Navbar from "@/lib/components/Navbar";
+import Footer from "@/lib/components/Footer";
 
 export const metadata: Metadata = {
   title: "Digital Product Jam Starter Kit",

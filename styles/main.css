@@ -28,7 +28,7 @@ main {
 }
 
 header {
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: var(--color-primary);
   display: flex;
   justify-content: space-between;
@@ -37,6 +37,11 @@ header {
 
   a {
     text-decoration: none;
+    color: var(--color-background);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   h1 {
@@ -52,8 +57,7 @@ header {
 
 footer {
   padding: 1rem;
-  background-color: var(--color-primary);
-  color: white;
+  font-size: 0.8rem;
   text-align: center;
 }
 

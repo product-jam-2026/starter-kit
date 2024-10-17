@@ -126,44 +126,6 @@
 }
 /* END FANCY STUFF */
 
-.demo-contactForm,
-.demo-blank {
-  background-color: var(--demo);
-}
-
-.demo-authentication {
-  background-color: var(--demo);
-}
-
-.demo-database {
-  background-color: var(--demo);
-}
-
-.demo-sheets {
-  background-color: var(--demo);
-}
-
-.demo-drive {
-  background-color: var(--demo);
-}
-
-.demo-viz {
-  background-color: var(--demo);
-}
-
-.demo-stepped-form {
-  background-color: var(--demo);
-}
-
-.demo-randomTeamGenerator {
-  background-color: var(--demo-random);
-}
-
-.demo-notes {
-  background-color: var(--demo);
-  font-size: 0.875rem;
-}
-
 /* classes added for the WDOMG example app */
 
 .action-boxes {

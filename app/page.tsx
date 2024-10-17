@@ -1,35 +1,28 @@
 import { COURSE_WELCOME_TEXT } from "@/lib/config";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
-      <div className="grid">
-        <div className="center padding-2 text-xl">
-          <span>{COURSE_WELCOME_TEXT}</span>
-        </div>
-        <div className="center padding-2">
-          <Image
-            src="/huji.svg"
-            alt="HUJI Logo"
-            width="80"
-            height="80"
-            priority
-          />
-        </div>
-        <div className="center padding-2">
-          <Image
-            src="/bezalel.svg"
-            alt="Bezalel Logo"
-            className="item"
-            width="80"
-            height="80"
-            priority
-          />
-        </div>
+      <div>
+        <h2>{COURSE_WELCOME_TEXT}</h2>
+        <Image
+          src="/huji.svg"
+          alt="HUJI Logo"
+          width="80"
+          height="80"
+          priority
+        />
+        <Image
+          src="/bezalel.svg"
+          alt="Bezalel Logo"
+          className="item"
+          width="80"
+          height="80"
+          priority
+        />
         <div>
-          <h1 className="center text-xxxl">Lorem Ipsum</h1>
+          <h2>Lorem Ipsum</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             faucibus sit amet nunc nec vehicula. Fusce ornare nec nulla non
@@ -53,37 +46,6 @@ export default function Home() {
             <li>Cras pharetra turpis at pretium elementum.</li>
             <li>Donec ultrices felis vel lectus auctor iaculis.</li>
           </ul>
-          <p>
-            See our{" "}
-            <Link
-              target="_blank"
-              href="https://github.com/digital-product-jam-2024/course/tree/main/reference"
-            >
-              Reference Material
-            </Link>{" "}
-            on{" "}
-            <Link
-              target="_blank"
-              href="https://github.com/digital-product-jam-2024/course/blob/main/reference/html.md"
-            >
-              HTML
-            </Link>
-            ,{" "}
-            <Link
-              target="_blank"
-              href="https://github.com/digital-product-jam-2024/course/blob/main/reference/css.md"
-            >
-              CSS
-            </Link>
-            , and{" "}
-            <Link
-              target="_blank"
-              href="https://github.com/digital-product-jam-2024/course/blob/main/reference/javascript.md"
-            >
-              JavaScript
-            </Link>
-            .
-          </p>
         </div>
       </div>
     </main>
