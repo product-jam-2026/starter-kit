@@ -41,9 +41,6 @@ step. For now, just run the command from the root of the project.
 cp .env.local.template .env.local
 ```
 
-Then, open the `.env.local` file in your code editor, and update the values with
-real data.
-
 ### Run the development server
 
 The codebase uses a development server to run the code. This is a server that
@@ -100,5 +97,8 @@ without including configuration values directly in the codebase. This is useful
 for things like API keys, or other sensitive information that you don't want to
 be publicly available.
 
-- [Read about Environment variables in Next.js and Vercel here](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
-- [See this video we created on Environment variables](https://youtu.be/f4sXU4d3Zd8)
+[Read about Environment variables in Next.js and Vercel here](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
+
+Open the `.env.local` file in your code editor, and update the values with real
+data from supabase. You can get the variables using this guide:
+[Use Supabase with Next.js](supabase).
