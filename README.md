@@ -111,8 +111,6 @@ be publicly available.
 - [Read about Environment variables in Next.js and Vercel here](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
 - [See this video we created on Environment variables](https://youtu.be/f4sXU4d3Zd8)
 
-# Helpers
-
 # Demos
 
 Go to the demos page on the running app to use the demos. The demos are provided
