@@ -34,12 +34,19 @@ npm install
 
 ### Configure local environment variables
 
-See the section on environment variables below for more explanation on this
-step. For now, just run the command from the root of the project.
+Run the command from the root of the project:
 
 ```bash
 cp .env.local.template .env.local
 ```
+
+Environment variables provide a way to pass configuration to your application
+without including configuration values directly in the codebase. This is useful
+for things like API keys and other sensitive information that you don't want to
+be publicly available.
+
+In VS Code, open the `.env.local` file that was created. You can update the
+values with real data as described in the file.
 
 ### Run the development server
 
@@ -89,16 +96,3 @@ npm run start
 ```bash
 npm run info
 ```
-
-## Environment variables
-
-Environment variables provide a way to pass configuration to your application
-without including configuration values directly in the codebase. This is useful
-for things like API keys, or other sensitive information that you don't want to
-be publicly available.
-
-[Read about Environment variables in Next.js and Vercel here](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
-
-Open the `.env.local` file in your code editor, and update the values with real
-data from supabase. You can get the variables using this guide:
-[Use Supabase with Next.js](supabase).
