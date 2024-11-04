@@ -8,6 +8,7 @@
     "GitHub.copilot-chat",
     "yoavbls.pretty-ts-errors",
     "christian-kohler.path-intellisense",
-    "clinyong.vscode-css-modules"
+    "clinyong.vscode-css-modules",
+    "MylesMurphy.prettify-ts"
   ]
 }
