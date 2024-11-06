@@ -9,6 +9,7 @@
     "yoavbls.pretty-ts-errors",
     "christian-kohler.path-intellisense",
     "clinyong.vscode-css-modules",
-    "MylesMurphy.prettify-ts"
+    "MylesMurphy.prettify-ts",
+    "vunguyentuan.vscode-css-variables"
   ]
 }
