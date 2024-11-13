@@ -53,3 +53,5 @@ export const SUPABASE_ENABLED =
   PRIVATE_SUPABASE_SERVICE_KEY
     ? true
     : false;
+
+export const NASA_API_KEY = process.env.NASA_API_KEY || "";
