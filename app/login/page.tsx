@@ -2,6 +2,9 @@ import { createClient } from "@/lib/supabase/server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import styles from "./page.module.css";
+import OneTapComponent from "./OneTapComponent";
+import { NEXT_PUBLIC_GOOGLE_CLIENT_ID } from "@/lib/config";
+import LoginButton from "./LoginButton";
 
 export default function Login({
   searchParams,
@@ -67,6 +70,7 @@ export default function Login({
           <p className={styles.errorMessage}>{searchParams.message}</p>
         )}
       </form>
+      <LoginButton />
     </div>
   );
 }
