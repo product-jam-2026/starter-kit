@@ -12,7 +12,7 @@ import { useEffect } from "react";
 
 if (window !== undefined) window.handleSignInWithGoogle = () => {};
 
-const LoginButton = () => {
+const GoogleLoginButton = () => {
   const supabase = createClient();
 
   useEffect(() => {
@@ -26,6 +26,8 @@ const LoginButton = () => {
     };
   }, []);
 
+  // You can customize the button here:
+  // https://developers.google.com/identity/gsi/web/tools/configurator
   return (
     <>
       <div
@@ -39,14 +41,14 @@ const LoginButton = () => {
       <div
         className="g_id_signin"
         data-type="standard"
-        data-shape="pill"
+        data-shape="rectangular"
         data-theme="outline"
-        data-text="signin"
-        data-size="large"
+        data-text="signin_with"
+        data-size="medium"
         data-logo_alignment="left"
       />
     </>
   );
 };
 
-export default LoginButton;
+export default GoogleLoginButton;

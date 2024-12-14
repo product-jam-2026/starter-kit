@@ -1,10 +1,8 @@
 import { createClient } from "@/lib/supabase/server";
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 import styles from "./page.module.css";
-import OneTapComponent from "./OneTapComponent";
-import { NEXT_PUBLIC_GOOGLE_CLIENT_ID } from "@/lib/config";
-import LoginButton from "./LoginButton";
+import GoogleLoginButton from "./GoogleLoginButton";
 
 export default function Login({
   searchParams,
@@ -27,25 +25,25 @@ export default function Login({
     return redirect("/");
   };
 
-  // const signUp = async (formData: FormData) => {
-  //   'use server';
-  //   const origin = headers().get('origin');
-  //   const email = formData.get('email') as string;
-  //   const password = formData.get('password') as string;
-  //   const cookieStore = cookies();
-  //   const supabase = createClient(cookieStore);
-  //   const { error } = await supabase.auth.signUp({
-  //     email,
-  //     password,
-  //     options: {
-  //       emailRedirectTo: `${origin}/auth/callback`,
-  //     },
-  //   })
-  //   if (error) {
-  //     return redirect('/login?message=Could not authenticate user');
-  //   }
-  //   return redirect('/login?message=Check email to continue sign in process');
-  // }
+  const signUp = async (formData: FormData) => {
+    "use server";
+    const origin = headers().get("origin");
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    const cookieStore = cookies();
+    const supabase = createClient(cookieStore);
+    const { error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: `${origin}/auth/callback`,
+      },
+    });
+    if (error) {
+      return redirect("/login?message=Could not authenticate user");
+    }
+    return redirect("/login?message=Check email to continue sign in process");
+  };
 
   return (
     <div className="content">
@@ -65,12 +63,12 @@ export default function Login({
         </label>
 
         <button>Log In</button>
-        {/* <button formAction={signUp}>Sign Up</button> */}
+        <button formAction={signUp}>Sign Up</button>
         {searchParams?.message && (
           <p className={styles.errorMessage}>{searchParams.message}</p>
         )}
+        <GoogleLoginButton />
       </form>
-      <LoginButton />
     </div>
   );
 }
