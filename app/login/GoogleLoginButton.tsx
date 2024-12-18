@@ -1,16 +1,18 @@
 "use client";
 
+import { NEXT_PUBLIC_GOOGLE_CLIENT_ID } from "@/lib/config";
+import { createClient } from "@/lib/supabase/client";
+import { useEffect } from "react";
+
 declare global {
   interface Window {
     handleSignInWithGoogle: (response: any) => void;
   }
 }
 
-import { NEXT_PUBLIC_GOOGLE_CLIENT_ID } from "@/lib/config";
-import { createClient } from "@/lib/supabase/client";
-import { useEffect } from "react";
-
-if (window !== undefined) window.handleSignInWithGoogle = () => {};
+if (typeof window !== undefined) {
+  window.handleSignInWithGoogle = () => {};
+}
 
 const GoogleLoginButton = () => {
   const supabase = createClient();
@@ -46,6 +48,7 @@ const GoogleLoginButton = () => {
         data-text="signin_with"
         data-size="medium"
         data-logo_alignment="left"
+        data-width="290"
       />
     </>
   );
