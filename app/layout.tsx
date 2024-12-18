@@ -31,6 +31,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           href="/icons/icon-192.png"
         />
         <link rel="manifest" href="/manifest.json" />
+        <script src="https://accounts.google.com/gsi/client" async></script>
       </head>
       <body>
         <Navbar />
