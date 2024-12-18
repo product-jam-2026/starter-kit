@@ -15,7 +15,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html>
       <head>
-        <link rel="icon" href="/favicon.png" />
+        {/* Browser Favicon */}
+        <link rel="icon" href="/icons/favicon.png" />
+        {/* Apple Icon */}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/icons/icon-180.png"
+        />
+        {/* Android Icon */}
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/icons/icon-192.png"
+        />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body>
         <Navbar />
