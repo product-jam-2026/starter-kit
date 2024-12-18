@@ -4,11 +4,18 @@ import { redirect } from "next/navigation";
 import styles from "./page.module.css";
 import GoogleLoginButton from "./GoogleLoginButton";
 
-export default function Login({
+export default async function Login({
   searchParams,
 }: {
   searchParams: { message: string };
 }) {
+  const cookieStore = cookies();
+  const supabase = createClient(cookieStore);
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (user) return <div className={styles.loginForm}>hello {user.email}</div>;
+
   const signIn = async (formData: FormData) => {
     "use server";
     const email = formData.get("email") as string;

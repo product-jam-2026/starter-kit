@@ -22,7 +22,7 @@ const GoogleLoginButton = () => {
         provider: "google",
         token: response.credential,
       });
-      console.log(data, error);
+      location.reload();
     };
   }, []);
 
