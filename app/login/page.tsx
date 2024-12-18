@@ -65,6 +65,7 @@ export default async function Login({
             type="password"
             name="password"
             placeholder="••••••••"
+            autoComplete="on"
             required
           />
         </label>
