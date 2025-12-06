@@ -2,23 +2,27 @@
 
 import { NEXT_PUBLIC_GOOGLE_CLIENT_ID } from "@/lib/config";
 import { createClient } from "@/lib/supabase/client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 declare global {
   interface Window {
-    handleSignInWithGoogle: (response: any) => void;
+    google?: {
+      accounts: {
+        id: {
+          initialize: (config: any) => void;
+          renderButton: (element: HTMLElement, config: any) => void;
+        };
+      };
+    };
   }
 }
 
-if (typeof window !== undefined) {
-  window.handleSignInWithGoogle = () => {};
-}
-
 const GoogleLoginButton = () => {
+  const buttonRef = useRef<HTMLDivElement>(null);
   const supabase = createClient();
 
   useEffect(() => {
-    window.handleSignInWithGoogle = async (response) => {
+    const handleSignInWithGoogle = async (response: any) => {
       console.log("handleSignInWithGoogle", response);
       const { data, error } = await supabase.auth.signInWithIdToken({
         provider: "google",
@@ -26,32 +30,43 @@ const GoogleLoginButton = () => {
       });
       location.reload();
     };
-  }, []);
+
+    const initializeGoogle = () => {
+      if (window.google && buttonRef.current) {
+        window.google.accounts.id.initialize({
+          client_id: NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+          callback: handleSignInWithGoogle,
+        });
+        window.google.accounts.id.renderButton(buttonRef.current, {
+          type: "standard",
+          shape: "rectangular",
+          theme: "outline",
+          text: "signin_with",
+          size: "medium",
+          logo_alignment: "left",
+          width: 290,
+        });
+      }
+    };
+
+    // Initialize if Google script is already loaded
+    if (window.google) {
+      initializeGoogle();
+    } else {
+      // Wait for the script to load
+      const checkGoogle = setInterval(() => {
+        if (window.google) {
+          clearInterval(checkGoogle);
+          initializeGoogle();
+        }
+      }, 100);
+      return () => clearInterval(checkGoogle);
+    }
+  }, [supabase.auth]);
 
   // You can customize the button here:
   // https://developers.google.com/identity/gsi/web/tools/configurator
-  return (
-    <>
-      <div
-        id="g_id_onload"
-        data-client_id={NEXT_PUBLIC_GOOGLE_CLIENT_ID}
-        data-context="signin"
-        data-ux_mode="popup"
-        data-callback="handleSignInWithGoogle"
-        data-auto_prompt="false"
-      />
-      <div
-        className="g_id_signin"
-        data-type="standard"
-        data-shape="rectangular"
-        data-theme="outline"
-        data-text="signin_with"
-        data-size="medium"
-        data-logo_alignment="left"
-        data-width="290"
-      />
-    </>
-  );
+  return <div ref={buttonRef} />;
 };
 
 export default GoogleLoginButton;
